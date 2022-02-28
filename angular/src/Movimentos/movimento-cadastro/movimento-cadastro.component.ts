@@ -23,7 +23,7 @@ export class MovimentoCadastroComponent implements OnInit {
   @ViewChild('dataTable') dataTable: Table;
   primengTableHelper: PrimengTableHelper;
   
-  formInscricao: FormGroup = new FormGroup({
+  formMovimento: FormGroup = new FormGroup({
     txtMes: new FormControl('', []),
     txtAno: new FormControl('', []),
     ddlProduto: new FormControl('', []),
@@ -78,7 +78,7 @@ export class MovimentoCadastroComponent implements OnInit {
   public SelecionarProduto() {
     this.produtoCosif = [];
 
-    let _idProduto: string = this.formInscricao.controls.ddlProduto.value;
+    let _idProduto: string = this.formMovimento.controls.ddlProduto.value;
 
 
     if (_idProduto.length == 0) {
@@ -104,12 +104,12 @@ export class MovimentoCadastroComponent implements OnInit {
 
   public NovoOnClick() {
 
-    this.formInscricao.reset();
+    this.formMovimento.reset();
   }
 
   public LimparOnClick() {
 
-    this.formInscricao.reset();
+    this.formMovimento.reset();
   }
 
   public SalvarOnClick() {
@@ -117,13 +117,13 @@ export class MovimentoCadastroComponent implements OnInit {
 
     let _movimento: Movimento_ManualDto = new Movimento_ManualDto();
 
-    _movimento.daT_ANO = this.formInscricao.controls.txtAno.value;
-    _movimento.daT_MES = this.formInscricao.controls.txtMes.value;
-    _movimento.vaL_VALOR = this.formInscricao.controls.txtValor.value;
-    _movimento.deS_DESCRICAO = this.formInscricao.controls.txtDescricao.value;
-    _movimento.coD_PRODUTO = this.formInscricao.controls.ddlProduto.value;
-    _movimento.produtoCod = this.formInscricao.controls.ddlProduto.value;
-    _movimento.coD_COSIF = this.formInscricao.controls.ddlCosif.value;
+    _movimento.daT_ANO = this.formMovimento.controls.txtAno.value;
+    _movimento.daT_MES = this.formMovimento.controls.txtMes.value;
+    _movimento.vaL_VALOR = this.formMovimento.controls.txtValor.value;
+    _movimento.deS_DESCRICAO = this.formMovimento.controls.txtDescricao.value;
+    _movimento.coD_PRODUTO = this.formMovimento.controls.ddlProduto.value;
+    _movimento.produtoCod = this.formMovimento.controls.ddlProduto.value;
+    _movimento.coD_COSIF = this.formMovimento.controls.ddlCosif.value;
     _movimento.coD_USUARIO = "TESTE"
 
     this._movimento.gravar(_movimento)

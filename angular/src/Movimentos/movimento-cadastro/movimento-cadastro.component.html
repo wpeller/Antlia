@@ -1,18 +1,18 @@
 <div class="m-content">
   <div class="m-portlet m-portlet--mobile">
     <div class="m-portlet__body">
-      <form class="form-horizontal form-horizontal-thin" [formGroup]="formInscricao">
+      <form class="form-horizontal form-horizontal-thin" [formGroup]="formMovimento">
 
 
         <div class="row">
           <div class="col-6">
             <fgv-input-number id="txtMes" name="txtMes" label="Mes:" formControlName="txtMes"
-              [formGroup]="formInscricao" maxlength="2">
+              [formGroup]="formMovimento" maxlength="2">
             </fgv-input-number>
           </div>
           <div class="col-6">
             <fgv-input-number id="txtAno" name="txtAno" label="Ano:" formControlName="txtAno"
-              [formGroup]="formInscricao" maxlength="4">
+              [formGroup]="formMovimento" maxlength="4">
             </fgv-input-number>
           </div>
         </div>
@@ -20,12 +20,12 @@
         <div class="row">
           <div class="col-6">
             <fgv-input-select id="ddlProduto" name="ddlProduto" label="Produto:" formControlName="ddlProduto"
-              [options]="produtos" [formGroup]="formInscricao" [options]="turmas" (change)="SelecionarProduto()">
+              [options]="produtos" [formGroup]="formMovimento" [options]="turmas" (change)="SelecionarProduto()">
             </fgv-input-select>
           </div>
           <div class="col-6">
             <fgv-input-select id="ddlCosif" name="ddlCosif" label="Cosif:" formControlName="ddlCosif"
-              [options]="produtoCosif" [formGroup]="formInscricao" [options]="turmas">
+              [options]="produtoCosif" [formGroup]="formMovimento" [options]="turmas">
             </fgv-input-select>
           </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="row">
           <div class="col-4">
             <fgv-input-number id="txtValor" name="txtValor" label="Valor:" formControlName="txtValor" maxlength="6"
-              [formGroup]="formInscricao">
+              [formGroup]="formMovimento">
             </fgv-input-number>
           </div>
         </div>
@@ -43,7 +43,7 @@
         <div class="row">
           <div class="col-4">
             <fgv-input-textarea id="txtDescricao" name="txtDescricao" label="Descrição:" formControlName="txtDescricao"
-              maxlength="50" [formGroup]="formInscricao">
+              maxlength="50" [formGroup]="formMovimento">
             </fgv-input-textarea>
           </div>
         </div>

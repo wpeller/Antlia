@@ -58,8 +58,7 @@ import { AuthService } from './shared/services/auth.service';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { DashboardComponent } from './dashboard.component';
 import { PapelServicoServiceProxy, MenuServicoServiceProxy, UsuarioServicoServiceProxy, AutorizacaoServicoServiceProxy } from '@shared/service-proxies/service-proxies';
-import { HotSitePublicadoModule } from 'hotsite/hotsite_publicado/hotsite-publicado.module';
-import { DocumentoDownloadModule } from 'hotsite/documento-download/documento-download.module';
+ 
 
 @NgModule({
     declarations: [
@@ -115,7 +114,6 @@ import { DocumentoDownloadModule } from 'hotsite/documento-download/documento-do
         ImageCropperModule,
         NgIdleKeepaliveModule.forRoot(),
         AutoCompleteModule,
-        DocumentoDownloadModule,
     ],
     providers: [
         { provide: LOCALE_ID, useValue: 'pt-BR' },

@@ -9,8 +9,7 @@ import {
     RouterModule
 } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { HotSitePublicadoComponent } from 'hotsite/hotsite_publicado/hotsite-publicado.component';
-import { DocumentoDownloadComponent } from 'hotsite/documento-download/documento-download.component';
+ 
 
 @NgModule({
     imports: [
@@ -54,12 +53,12 @@ import { DocumentoDownloadComponent } from 'hotsite/documento-download/documento
                     }
                 ]
             },
-            {
-                path: 'hotsite',
-                loadChildren: 'hotsite/hotsite.module#HotsiteModule',
-                runGuardsAndResolvers: 'always',
-                data: { preload: true }
-            },
+            // {
+            //     path: 'hotsite',
+            //     loadChildren: 'hotsite/hotsite.module#HotsiteModule',
+            //     runGuardsAndResolvers: 'always',
+            //     data: { preload: true }
+            // },
         ])
     ],
     exports: [RouterModule]

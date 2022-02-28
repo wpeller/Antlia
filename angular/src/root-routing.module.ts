@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { NavigationEnd, Router, RouterModule, Routes } from '@angular/router';
 import { AppUiCustomizationService } from '@shared/common/ui/app-ui-customization.service';
-import { HotSitePublicadoComponent } from 'hotsite/hotsite_publicado/hotsite-publicado.component';
-import { PreviewHotSiteComponent } from 'hotsite/preview-hotsite/preview-hotsite.component';
-import { TesteComponent } from 'hotsite/teste/teste.component';
-import { InscricaoComponent } from 'hotsite/inscricao/inscricao.component';
-import { PreviewInscricaoComponent } from 'hotsite/preview-inscricao/preview-inscricao.component';
+ 
 import { MovimentoCadastroComponent } from 'Movimentos/movimento-cadastro/movimento-cadastro.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

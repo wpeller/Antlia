@@ -1,7 +1,0 @@
-button:disabled,button[disabled]{
-    background-color: #cccccc;
-    cursor:not-allowed !important;
-    /* pointer-events: none; */
-    pointer-events: all !important;
-    opacity: 0.3;
-  }

@@ -1,4 +1,3 @@
-import { HotSitePublicadoModule } from 'hotsite/hotsite_publicado/hotsite-publicado.module';
 import { AbpModule } from '@abp/abp.module';
 import { AbpHttpInterceptor } from '@abp/abpHttpInterceptor';
 import { PlatformLocation, registerLocaleData } from '@angular/common';
@@ -23,10 +22,7 @@ import { RootComponent } from './root.component';
 import { DomHelper } from '@shared/helpers/DomHelper';
 import { CookieConsentService } from '@shared/common/session/cookie-consent.service';
 import { NgxBootstrapDatePickerConfigService } from 'assets/ngx-bootstrap/ngx-bootstrap-datepicker-config.service';
-import { PreviewHotSiteModule } from 'hotsite/preview-hotsite/preview-hotsite.module';
-import { TesteModule } from 'hotsite/teste/teste.module';
-import { InscricaoModule } from 'hotsite/inscricao/inscricao.module';
-import { PreviewInscricaoModule } from 'hotsite/preview-inscricao/preview-inscricao.module';
+ 
 import { MovimentoCadastroComponent } from './Movimentos/movimento-cadastro/movimento-cadastro.component';
 import { FgvComponentModule } from '@app/shared/component/FgvComponentModule/fgv-components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -202,12 +198,7 @@ function handleLogoutRequest(authService: AppAuthService) {
         CommonModule.forRoot(),
         AbpModule,
         ServiceProxyModule,
-        HttpClientModule,
-        HotSitePublicadoModule,
-        PreviewHotSiteModule,
-        TesteModule,
-        InscricaoModule,
-        PreviewInscricaoModule,
+        HttpClientModule,         
         RootRoutingModule,
         BrowserModule,
         FormsModule,
