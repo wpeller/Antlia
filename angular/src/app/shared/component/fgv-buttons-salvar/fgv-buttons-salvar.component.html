@@ -1,0 +1,4 @@
+<div style="text-align: center;">
+    <fgv-button buttonText="Voltar" (onClick)="voltarHandler()" *ngIf="exibirVoltar"></fgv-button>
+    <fgv-button buttonText="Salvar" (onClick)="salvarHandler()" *ngIf="exibirSalvar" [buttonDisabled]="disabled"></fgv-button>
+</div>

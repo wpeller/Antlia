@@ -1,0 +1,11 @@
+    .opacidade {
+        opacity: 0.4 !important;
+    }
+
+.exibir {
+    opacity: 1;
+}
+
+.fgv-input-switch-checked {
+    background-color: #07315F !important;
+}

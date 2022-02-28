@@ -1,0 +1,21 @@
+<div style="padding-bottom: 5px; padding-top:5px">
+    <div class="row" *ngIf="exibirExportar && pdfViewer != null">
+        <div class="col">
+            <div style="width: 20%; float: right;">
+                <form [formGroup]="formulario">
+                    <fgv-input-select id="formato" name="formato" label="" textoSelecione="EXPORTAR"
+                                      formControlName="formato" [formGroup]="formulario" [isMasculino]="true"
+                                      [options]="formatos" (change)="onChangeExportHandler($event.target.value)">
+                    </fgv-input-select>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row" [ngStyle]="{ 'display': (pdfViewer == null ? 'none' : '') }">
+        <div class="col" [ngStyle]="{ 'height': reportHeight + 'px' }">
+            <ng2-pdfjs-viewer #pdfViewerAutoLoad zoom="100"
+                              [downloadFileName]="downloadFileName">
+            </ng2-pdfjs-viewer>
+        </div>
+    </div>
+</div>

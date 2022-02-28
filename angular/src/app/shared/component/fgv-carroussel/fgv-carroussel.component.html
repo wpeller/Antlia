@@ -1,0 +1,33 @@
+<div #divPrincipal id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" *ngIf="lista != null && lista.length > 0">
+    <ol class="carousel-indicators" *ngIf="paginador != null && paginador.visible">
+        <li *ngFor="let item of paginador.itens; index as i"
+            [title]="item.titulo"
+            [ngClass]="item.classe"
+            (click)="selecionar(item.index)"
+            data-target="#carouselExampleIndicators" data-slide-to="i"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div *ngFor="let item of lista; index as i"
+             style="text-align: -webkit-center;"
+             [id]="('imagem' + i)"
+             [ngClass]="item.classe"
+             [ngStyle]="item.style">
+            <img class="d-block"
+                 style="cursor:pointer; max-width:100%; max-height:300px; width:100%"
+                 [alt]="item.titulo"
+                 [title]="item.titulo"
+                 [src]="item.src"
+                 (click)="imagemOnClickHandler(item)">
+        </div>
+    </div>
+    <span class="carousel-control-prev" style="cursor:pointer" title="Previous"
+          (click)="previous()" role="button" data-slide="prev" *ngIf="paginador != null && paginador.visible">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </span>
+    <span class="carousel-control-next" style="cursor:pointer" title="Next"
+          (click)="next()" role="button" data-slide="next" *ngIf="paginador != null && paginador.visible">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </span>
+</div>

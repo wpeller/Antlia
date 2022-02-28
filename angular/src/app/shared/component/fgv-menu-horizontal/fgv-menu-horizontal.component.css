@@ -1,0 +1,56 @@
+li a, .fgv-menu-horizontal-menu-a {
+    display: inline-block;
+    color: white !important;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    height: 65px;
+}
+
+    li a:hover, .fgv-menu-horizontal-menu-li:hover .fgv-menu-horizontal-menu-a {
+        color: rgb(255, 158, 13) !important;
+       /* border-bottom: solid*/
+        /*background-color: red;*/
+    }
+
+li.fgv-menu-horizontal-menu-li {
+    display: inline-block;
+}
+
+.fgv-menu-horizontal-menu-ul {
+    /*position: -webkit-sticky;*/ /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+.fgv-menu-horizontal-submenu-div {
+    display: none;
+    position: absolute;
+    background-color: rgba(26, 28, 40, 0.9) !important;
+    min-width: 220px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 999;
+}
+
+    .fgv-menu-horizontal-submenu-div a {
+        color: white !important;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        height: auto;
+    }
+
+        .fgv-menu-horizontal-submenu-div a:hover {
+            color: rgb(255, 158, 13) !important;
+            border-left: solid;
+            border-bottom: none;
+            /*background-color: #f1f1f1;*/
+        }
+
+.fgv-menu-horizontal-menu-li:hover .fgv-menu-horizontal-submenu-div {
+    display: block;
+}

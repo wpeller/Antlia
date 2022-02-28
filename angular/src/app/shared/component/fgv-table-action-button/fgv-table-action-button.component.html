@@ -1,0 +1,6 @@
+<li>
+    <a href="javascript:void(0);" class="fgv-table-action-button" [title]="titulo"
+       (click)="onClickHandler($event)">
+        <i class="{{iconClass}}" *ngIf="iconClass != null && iconClass!= ''" style="margin-right:2px"></i>{{text}}
+    </a>
+</li>

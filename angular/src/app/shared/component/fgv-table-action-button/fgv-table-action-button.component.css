@@ -1,0 +1,34 @@
+.fgv-table-action-button {
+    background-color: rgba(0, 0, 0, 0);
+    box-sizing: border-box;
+    color: rgb(87, 89, 98);
+    cursor: pointer;
+    direction: ltr;
+    display: block;
+    font-family: verdana, arial;
+    font-size: 13px;
+    font-weight: 700;
+    height: 37.1875px;
+    line-height: 19.5px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    outline-color: rgb(87, 89, 98);
+    outline-style: none;
+    outline-width: 0px;
+    padding-bottom: 9.1px;
+    padding-left: 15.6px;
+    padding-right: 15.6px;
+    padding-top: 9.1px;
+    text-align: left;
+    text-decoration-color: rgb(87, 89, 98);
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    text-size-adjust: 100%;
+    white-space: nowrap;
+    width: 130px;
+}
+
+    .fgv-table-action-button:hover {
+        background-color: #f4f5f8;
+    }

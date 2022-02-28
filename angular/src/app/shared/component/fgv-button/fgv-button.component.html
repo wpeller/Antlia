@@ -1,0 +1,4 @@
+<button type="submit" class="{{buttonClass}}" (click)="onClickHandler()" [disabled]="buttonDisabled" [ngStyle]="buttonStyle">
+    <i class="fgv-button-icon {{iconClass}}" *ngIf="iconClass != null && iconClass != ''"></i>
+    <span class="fgv-button-span" *ngIf="buttonText != null && buttonText != ''">{{buttonText}}</span>
+</button>

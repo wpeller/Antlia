@@ -1,0 +1,18 @@
+<div class="form-group {{class}}" [formGroup]="formGroup">
+    <label [for]="id">            
+        <ng-template [ngIf]="label">{{label}}</ng-template>
+        <span class="campo-obrigatorio" *ngIf="required">*</span>
+    </label>
+    <input type="text" [id]="id" [name]="name" class="form-control fgv-input-text-css {{classInput}}" [style]="style"
+           [maxlength]="maxlength"
+           [minlength]="minlength"
+           [formControlName]="formControlName" [placeholder]="placeholder"
+           [readonly]="readonly"
+           (focusout)="onFocusOutHandler($event)"
+           (focus)="onFocusHandler($event)">
+    <div class="has-danger" *ngIf="verificaEstado">
+        <div *ngFor="let er of errorMessage">
+            <div class="form-control-feedback">{{er}}</div>
+        </div>
+    </div>
+</div>

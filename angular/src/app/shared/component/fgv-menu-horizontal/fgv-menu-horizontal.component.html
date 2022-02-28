@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light" *ngIf="visible"
+     [ngStyle]="styleBarraMenu"
+     style="padding-top:0px !important; padding-bottom:0px !important;
+    position: -webkit-sticky; position: sticky; top: 0; z-index:999">
+    <div style="display: grid; grid-template-columns: 1fr auto; grid-gap: 15px; align-items: center; width:100%;">
+        <ul style="margin:0px; padding:0px; line-height:normal; margin-top: 4px;">
+            <li *ngFor="let item of logos; index as i" style="display: inline-block; text-decoration: none;">
+                <img
+                     style="display: block; max-width: 100%; height: auto;max-height:61px;cursor:pointer; margin-right: 4px;"
+                     [alt]="item.titulo"
+                     [title]="item.titulo"
+                     [src]="item.src"
+                     (click)="logoOnClickHandler(item)" />
+            </li>
+        </ul>
+        <button #buttonCollapse class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
+                (click)="buttonCollapseOnClickHandler($event)">
+            <span class="fa fa-bars" style="color:white; font-size:20px"></span>
+        </button>
+    </div>
+    <div #divItemMenu class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li *ngFor="let item of menus; index as i"
+                class="fgv-menu-horizontal-menu-li nav-item active">
+                <a href="javascript:void(0)" class="fgv-menu-horizontal-menu-a nav-link" (click)="menuOnClickHandler(item)">{{item.titulo}}</a>
+                <div class="fgv-menu-horizontal-submenu-div" *ngIf="item.subMenu != null && item.subMenu.length > 0">
+                    <a *ngFor="let sub of item.subMenu; index as i" href="javascript:void(0)" (click)="menuOnClickHandler(sub)">{{sub.titulo}}</a>
+                </div>
+                <ul *ngIf="false && exibirMenuOculto && item.subMenu != null && item.subMenu.length > 0">
+                    <li style="display: inline-grid;">
+                        <a *ngFor="let sub of item.subMenu; index as i" href="javascript:void(0)" (click)="menuOnClickHandler(sub)">{{sub.titulo}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,12 @@
+<div class="btn-group dropdown" dropdown container="body">
+    <button dropdownToggle class="dropdown-toggle btn btn-sm btn-primary fgv-table-action-content-button"
+            (click)="onClickMenu()">
+        <i class="fa fa-cog"></i>
+        <span style="padding-right:5px" *ngIf="titulo != null && titulo != ''">{{titulo}}</span>
+        <i class="fa fa-caret-down fgv-table-action-content-seta"></i>
+    </button>
+    <ul class="dropdown-menu" *dropdownMenu>
+        <ng-content></ng-content>
+    </ul>
+</div>
+

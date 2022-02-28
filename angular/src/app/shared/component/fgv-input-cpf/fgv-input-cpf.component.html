@@ -1,0 +1,17 @@
+<div class="form-group {{class}}" [formGroup]="formGroup">
+    <label [for]="id">
+        {{label}}:
+        <span class="campo-obrigatorio" *ngIf="required">*</span>
+    </label>
+    <p-inputMask type="text" [inputId]="id" [formControlName]="formControlName"
+                 [style]="{'color': 'rgb(87, 89, 98', 'border': '1px solid #a6a6a6'}"
+                 styleClass="{{classInput}}"
+                 mask="999.999.999-99"
+                 (focusout)="onFocusOutHandler($event.target.value)">
+    </p-inputMask>
+    <div class="has-danger" *ngIf="verificaEstado">
+        <div *ngFor="let er of errorMessage">
+            <div class="form-control-feedback">{{er}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+<div [@routerTransition]>
+  <app-bread-crumb-default [breadcrumb]="'Administração/Usuário/Alterar senha'"></app-bread-crumb-default>
+  <div class="m-content" *ngIf="usuario">
+    <form #formUsuario="ngForm">
+      <div class="m-portlet m-portlet--mobile">
+        <div class="m-portlet__body">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title pt-2">Alteração de senha</h4>
+                </div>
+                <div class="card-body p-3">
+                  <div class="row">
+                    <div class="col-md-4 col-12">
+                      <div class="form-group">
+                        <label class="control-label">Senha do usuário?</label>
+                        <p-inputSwitch name="senhaUsuario" [(ngModel)]="senhaUsuario"
+                          [disabled]="senhaContrato || senhaFinanceira">
+                        </p-inputSwitch>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-12" *ngIf="usuario.senhaImpressaoContrato && usuario.senhaImpressaoContrato.length > 0">
+                      <div class="form-group">
+                        <label class="control-label">Senha do contrato?</label>
+                        <p-inputSwitch name="senhaContrato" [(ngModel)]="senhaContrato"
+                          [disabled]="senhaUsuario || senhaFinanceira">
+                        </p-inputSwitch>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-12" *ngIf="usuario.senhaFinanceira && usuario.senhaFinanceira.length > 0">
+                      <div class="form-group">
+                        <label class="control-label">Senha Financeira?</label>
+                        <p-inputSwitch name="senhaFinanceira" [(ngModel)]="senhaFinanceira"
+                          [disabled]="senhaUsuario || senhaContrato">
+                        </p-inputSwitch>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group col-md-4 col-12 float-left">
+                      <label for="senhaAtual" class="control-label">Senha de autenticação</label>
+                      <input type="password" class="form-control" pPassword name="senhaAtual" maxlength="8" id="senhaAtual" [feedback]="false"
+                        [(ngModel)]="trocaSenha.senhaAutenticacao" required />
+                    </div>
+                    <div class="form-group col-md-4 col-12 float-left">
+                      <label for="novaSenha" class="control-label">Nova senha</label>
+                      <input type="password" class="form-control" maxlength="8" pPassword name="novaSenha" id="novaSenha"
+                        [promptLabel]="'Informe sua senha.'"
+                        [weakLabel]="'Senha fraca'" [mediumLabel]="'Senha de complexidade média.'"
+                        [strongLabel]="'Senha forte'" [(ngModel)]="trocaSenha.novaSenha" required />
+                    </div>
+                    <div class="form-group col-md-4 col-12 float-left">
+                      <label for="novaSenhaConfirmacao" class="control-label">Confirmação da nova senha</label>
+                      <input type="password" class="form-control" pPassword maxlength="8" name="novaSenhaConfirmacao"
+                        id="novaSenhaConfirmacao" [feedback]="false" 
+                        [(ngModel)]="trocaSenha.confirmacaoSenha" required />
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button type="button" 
+                  [disabled]="(!senhaUsuario && !senhaContrato && !senhaUsuario) || (trocaSenha.senhaAutenticacao === '' || trocaSenha.novaSenha === '' || trocaSenha.confirmacaoSenha === '')"
+                  (click)="alterarSenha()" class="btn btn-primary col-md-4 col-12 float-right">
+                    <i class="fa fa-arrow-save"></i>Alterar senha
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title pt-2">***Regra para alteração de senha.</h4>
+                </div>
+                <div class="card-body">
+                  <ul>
+                    <li>- Necessariamente deverá ter 8 dígitos</li>
+                    <li>- Deverá ter pelo menos uma letra maiúscula e uma minúscula</li>
+                    <li>- Deverá ser composta, obrigatoriamente, por LETRAS e NÚMEROS.</li>
+                    <li>- É permitido a inclusão de caracteres especiais em sua senha.</li>
+                  </ul>
+                  <span class="text-danger  bold">Não serão permitidos dígitos iguais em sequência</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

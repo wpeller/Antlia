@@ -1,0 +1,5 @@
+<div style="text-align: center;">
+    <fgv-button buttonText="limpar" (onClick)="limparHandler()" *ngIf="exibirLimpar"></fgv-button>
+    <fgv-button buttonText="buscar" (onClick)="buscarHandler()" [buttonDisabled]="disabledBuscar" *ngIf="exibirBusca"></fgv-button>
+    <fgv-button buttonText="novo" (onClick)="novoHandler()" *ngIf="exibirNovo"></fgv-button>
+</div>

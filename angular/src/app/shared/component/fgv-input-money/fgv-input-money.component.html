@@ -1,0 +1,16 @@
+<div class="form-group {{class}}" [formGroup]="formGroup">
+    <label [for]="id">
+        {{label}}
+        <span class="campo-obrigatorio" *ngIf="required">*</span>
+    </label>
+    <input type="text" [id]="id" [name]="name" class="fgv-input-money-css form-control" [style]="style"
+           [minlength]="minlength" [maxlength]="maxlength" (keyup)="validar($event.target.value)"
+           [formControlName]="formControlName" [placeholder]="placeholder"
+           [min]="min" [max]="max"
+           pInputText [pKeyFilter]="forMoney" />
+    <div class="has-danger" *ngIf="verificaEstado">
+        <div *ngFor="let er of errorMessage">
+            <div class="form-control-feedback">{{er}}</div>
+        </div>
+    </div>
+</div>

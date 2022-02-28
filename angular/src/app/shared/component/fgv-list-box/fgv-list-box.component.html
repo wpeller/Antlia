@@ -1,0 +1,58 @@
+<div *ngIf="exibir">
+    <span *ngIf="exibirLoading">Carregando.</span>
+    <p-progressBar mode="indeterminate" [style]="{'height': '6px'}" *ngIf="exibirLoading">
+    </p-progressBar>
+
+    <div class="row" *ngIf="!exibirLoading">
+        <div class="col">
+            <div class="card card-section">
+                <div class="card-header" style="text-align:center">
+                    {{origemTitulo}}
+                </div>
+                <div class="card-body">
+                    <div class="card card-section" style="border:0px; padding-bottom:10px">
+                        <input #txtOrigem type="text" title="Filtrar: {{origemTitulo}}"
+                               class="fgv-list-box-filtro ui-picklist-filter ui-inputtext ui-widget ui-state-default ui-corner-all"
+                               (keyup)="onChangeTextOrigem($event.target.value)" />
+                        <span class="pi pi-search fgv-list-box-lupa"></span>
+                    </div>
+                    <select #origemListbox multiple="multiple" class="fgv-list-box" title="">
+                        <option class="fgv-list-box-item" [title]="item.label"
+                                *ngFor="let item of origemItens; let i = index"
+                                (dblclick)="toDestino([item])">
+                            {{item.label}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-0" style="align-self: center; text-align: center;">
+            <fgv-button iconClass="pi pi-angle-right" (onClick)="moveToDestino()"></fgv-button><br />
+            <fgv-button iconClass="pi pi-angle-double-right" (onClick)="moveAllToDestino()"></fgv-button><br />
+            <fgv-button iconClass="pi pi-angle-left" (onClick)="moveToOrigem()"></fgv-button><br />
+            <fgv-button iconClass="pi pi-angle-double-left" (onClick)="moveAllToOrigem()"></fgv-button>
+        </div>
+        <div class="col">
+            <div class="card card-section">
+                <div class="card-header" style="text-align:center">
+                    {{destinoTitulo}}
+                </div>
+                <div class="card-body">
+                    <div class="card card-section" style="border:0px; padding-bottom:10px">
+                        <input #txtDestino type="text" title="Filtrar: {{destinoTitulo}}"
+                               class="fgv-list-box-filtro ui-picklist-filter ui-inputtext ui-widget ui-state-default ui-corner-all"
+                               (keyup)="onChangeTextDestino($event.target.value)" />
+                        <span class="pi pi-search fgv-list-box-lupa"></span>
+                    </div>
+                    <select #destinoListBox multiple="multiple" class="fgv-list-box" title="">
+                        <option class="fgv-list-box-item" [title]="item.label"
+                                *ngFor="let item of destinoItens; let i = index"
+                                (dblclick)="toOrigem([item])">
+                            {{item.label}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

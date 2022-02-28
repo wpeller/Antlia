@@ -1,0 +1,40 @@
+<hotsite-master-page #masterPage (menuOnClick)="menuOnClick($event)">
+    <div [formGroup]="formInscricao" *ngIf="exibirFormulario">
+        <div class="row">
+            <div class="col-12">
+                Para iniciar o processo de cadastro, preencha os campos abaixo:
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <fgv-input-cpf id="cpf" name="cpf" label="CPF"
+                               formControlName="cpf" [formGroup]="formInscricao">
+                </fgv-input-cpf>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <fgv-input-email id="email" name="email" label="E-mail"
+                                 formControlName="email" [formGroup]="formInscricao">
+                </fgv-input-email>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <fgv-input-select id="idTurma" name="idTurma" label="Selecione sua turma"
+                                  formControlName="idTurma" [formGroup]="formInscricao"
+                                  [options]="turmas">
+                </fgv-input-select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <fgv-button buttonText="Inscrever"
+                            buttonClass="fgv-button-css btn"
+                            [buttonStyle]="buttonInscreverStyle"
+                            (onClick)="buttonInscreverOnClick()">
+                </fgv-button>
+            </div>
+        </div>
+    </div>
+</hotsite-master-page>

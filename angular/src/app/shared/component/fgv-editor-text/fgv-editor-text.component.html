@@ -1,0 +1,15 @@
+<div class="form-group {{class}}" style="padding-top:5px; padding-bottom:5px;" [formGroup]="formGroup">
+    <label [for]="idComponent">
+        <span *ngIf="label">{{label}}</span>
+        <span class="campo-obrigatorio" *ngIf="required">*</span>
+    </label>
+    <div id="dvCentro">
+        <textarea [id]="idComponent" [name]="idComponent" [formControlName]="formControlName">
+        </textarea>
+    </div>
+    <div class="has-danger" *ngIf="verificaEstado">
+        <div *ngFor="let er of errorMessage">
+            <div class="form-control-feedback">{{er}}</div>
+        </div>
+    </div>
+</div>

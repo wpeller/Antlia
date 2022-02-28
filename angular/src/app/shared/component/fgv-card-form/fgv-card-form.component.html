@@ -1,0 +1,14 @@
+<div class="m-content">
+    <div class="m-portlet m-portlet--mobile">
+        <div class="m-portlet__body">
+            <div class="row formulario">
+                <div class="col-12">
+                    <ng-content></ng-content>
+                </div>
+            </div>
+            <fgv-buttons-salvar (voltar)="acaoVoltar()" (salvar)="acaoSalvar()"
+                                [exibirVoltar]="exibirVoltar" [exibirSalvar]="exibirSalvar">
+            </fgv-buttons-salvar>
+        </div>
+    </div>
+</div>

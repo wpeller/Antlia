@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\common.props"></Import>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <AssemblyName>Fgv.Ide.Corporativohotsite.Application</AssemblyName>
+    <PackageId>Fgv.Ide.Corporativohotsite.Application</PackageId>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <RootNamespace>Fgv.Ide.Corporativohotsite</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="EPPlus.Core" Version="1.5.4" />
+    <PackageReference Include="Fgv.Tic.ApiConnectorCore" Version="1.0.0.9" />
+    <PackageReference Include="Fgv.Tic.WsConnectorCore" Version="1.0.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fgv.Ide.Corporativohotsite.Application.Shared\Fgv.Ide.Corporativohotsite.Application.Shared.csproj" />
+    <ProjectReference Include="..\Fgv.Ide.Corporativohotsite.Core\Fgv.Ide.Corporativohotsite.Core.csproj" />
+    <ProjectReference Include="..\Fgv.Ide.Corporativohotsite.EntityFrameworkCore\Fgv.Ide.Corporativohotsite.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Transactions" />
+  </ItemGroup>
+</Project>

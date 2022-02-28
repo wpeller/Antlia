@@ -1,0 +1,91 @@
+<div style="padding-bottom:5px; padding-top:5px">
+    <div class="row" *ngIf="multiple || arquivos.length <= 0">
+        <div class="col-2" style="align-self: center;">
+            <input [id]="id" type='file' [hidden]="true" (change)="onFileSelect($event.target)" [accept]="formatosPermitidosTexto" [multiple]="multiple" />
+
+            <label [for]="id" class="btn btn-primary" style="width:auto">
+                <i class="fa fa-plus"></i>
+                {{buttonLabel}}
+            </label>
+        </div>
+        <div class="col-10">
+            <div class="row" *ngIf="maxMbFile > 0">
+                <div class="col">
+                    Anexo de arquivo com até {{maxMbFile}} megabytes.
+                </div>
+            </div>
+            <div class="row" *ngIf="multiple && maxMbFileAll > 0">
+                <div class="col">
+                    Lista de anexos de arquivos com até {{maxMbFileAll}} megabytes.
+                </div>
+            </div>
+            <div class="row" *ngIf="formatosPermitidosTexto != null && formatosPermitidosTexto != ''">
+                <div class="col">
+                    Formatos de arquivo permitidos: {{formatosPermitidosTexto}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="arquivos.length > 0">
+        <div style="height:10px"></div>
+
+        <div class="row">
+            <div class="col primeng-datatable-container">
+                <p-table #dataTableArquivos
+                         [value]="arquivos"
+                         [paginator]="false" [lazy]="true">
+                    <ng-template pTemplate="caption">
+                        Documentos anexados
+                    </ng-template>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th class="text-center" *ngIf="exibirColuna(0)"></th>
+                            <th class="text-center" *ngIf="exibirColuna(1)">Imagem</th>
+                            <th class="text-center" *ngIf="exibirColuna(2)">Nome</th>
+                            <th class="text-center" *ngIf="exibirColuna(3)">Tamanho</th>
+                            <th class="text-center" *ngIf="exibirColuna(4)">Tipo</th>
+                            <th class="text-center" *ngIf="exibirColuna(5)">Última modificação</th>
+                            <th class="text-center" *ngIf="exibirColuna(6)">Percentual</th>
+                            <th class="text-center" *ngIf="exibirColuna(7)">Ações</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-record="$implicit" let-index="rowIndex">
+                        <tr>
+                            <td class="text-center" *ngIf="exibirColuna(0)">{{i + 1}}</td>
+                            <td class="text-center" *ngIf="exibirColuna(1)"><img [src]="record.srcImage" *ngIf="record.srcImage != null && record.srcImage != ''" style="max-width:100px; max-height:100px" /></td>
+                            <td class="text-center" *ngIf="exibirColuna(2)">{{record.name}}</td>
+                            <td class="text-center" *ngIf="exibirColuna(3)">{{record.sizeMb() | number:'1.2-2' }} MB</td>
+                            <td class="text-center" *ngIf="exibirColuna(4)">{{record.type}}</td>
+                            <td class="text-center" *ngIf="exibirColuna(5)">{{record.lastModifiedDate | date: 'dd/MM/yyyy'}}</td>
+                            <td class="text-center" *ngIf="exibirColuna(6)">{{record.readerProgress | number:'1.2-2' }} %</td>
+                            <td class="text-center" *ngIf="exibirColuna(7)">
+                                <fgv-table-action-content titulo="">
+                                    <fgv-table-action-button text="Visualizar" (onClick)="modalShow(record)" *ngIf="exibirBotao(0)"></fgv-table-action-button>
+                                    <fgv-table-action-button text="Download" (onClick)="downloadArquivo(record)" *ngIf="exibirBotao(1)"></fgv-table-action-button>
+                                    <fgv-table-action-button text="Excluir" (onClick)="delArquivo(rowIndex)" *ngIf="exibirBotao(2)"></fgv-table-action-button>
+                                </fgv-table-action-content>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>
+<div bsModal #Modal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" [config]="{backdrop: 'static'}">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <strong>Visualizar arquivo: {{modalFile.name}}</strong>
+                </h4>
+                <button type="button" class="close" (click)="modalClose()">
+                    <i class="fas fa-times fa-lg"></i>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img [src]="modalFile.srcImage" style="max-width: 100%" />
+            </div>
+        </div>
+    </div>
+</div>
